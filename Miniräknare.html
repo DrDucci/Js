@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.Miniräknaren{
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+    gap: 3vh;
+
+    background-color: rgb(70, 70, 70);
+    border-radius: 20px;
+    
+    width: 80%;
+}
+
+.Skärmen{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+
+    background-color: rgb(188, 193, 131);
+    border-radius: 10px;
+
+    width: 100%;
+    height: 20vh;
+}
+
+.Skrivruta{
+    padding: 10px;
+}
+
+.Knapparna{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    background-color: rgb(93, 93, 93);
+    border-radius: 10px;
+
+    width: 100%;
+    height: 80vh;
+    gap: 1%;
+}
+.Knapparna *{
+    text-align: center;
+}
+button{
+    background-color: rgb(41, 41, 41);
+    border-radius: 7px;
+    animation: example 7s infinite;
+
+    width: 22%;
+    height: 13.8%;
+}
+
+box-shadow{
+    animation: example 5s infinite;
+}
+
+@keyframes example {
+  0% {box-shadow: 0px 0px 10px red;}
+  25% {box-shadow: 0px 0px 10px yellow;}
+  50% {box-shadow: 0px 0px 10px orange;}
+  75% {box-shadow: 0px 0px 10px rgb(52, 255, 52);}
+  100% {box-shadow: 0px 0px 10px red;}
+}
+
+    </style>
+</head>
+<body>
+<div class="Miniräknaren">
+    <div class="Skärmen">
+        <div class="Skrivruta"><h1></h1>
+
+        </div>
+    </div>
+
+    <div class="Knapparna">
+        <button><h1>MODE</h1></button>
+        <button><h1>CE</h1></button>
+        <button><h1>C</h1></button>
+        <button><h1>🙄</h1></button>
+        <button><h1>x/1</h1></button>
+        <button><h1>^2</h1></button>
+        <button><h1>sqrt</h1></button>
+        <button><h1>/</h1></button>
+        <button><h1>7</h1></button>
+        <button><h1>8</h1></button>
+        <button><h1>9</h1></button>
+        <button><h1>x</h1></button>
+        <button><h1>4</h1></button>
+        <button><h1>5</h1></button>
+        <button><h1>6</h1></button>
+        <button><h1>-</h1></button>
+        <button><h1>1</h1></button>
+        <button><h1>2</h1></button>
+        <button><h1>3</h1></button>
+        <button><h1>+</h1></button>
+        <button><h1>+/-</h1></button>
+        <button><h1>0</h1></button>
+        <button><h1>.</h1></button>
+        <button><h1>=</h1></button>
+    </div>
+</div>
+    <script>
+
+    </script>
+</body>
+</html>

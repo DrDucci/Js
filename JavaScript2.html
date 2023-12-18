@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Div Skapande</title>
+    <style>
+        body {
+            height: 100vh;
+            margin: 0;
+        }
+
+        .skapadDiv {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: lightblue;
+            border: 2px solid darkblue;
+            border-radius: 8px;
+            margin: 5%;
+            bottom: 0;
+        }
+        
+    </style>
+</head>
+<body>
+    <script>
+        var nyDiv = document.createElement("div");
+
+        nyDiv.classList.add("skapadDiv")
+
+        nyDiv.setAttribute("onclick", "Click()");
+
+        function Click(){  
+            if (nyDiv.style.background == "red"){
+                nyDiv.style.right="70%";
+                nyDiv.style.background="lightblue";
+            }else{
+                nyDiv.style.right="0%";
+                nyDiv.style.background = "red";
+            }
+}        
+        document.body.appendChild(nyDiv);
+    </script>
+</body>
+</html>
