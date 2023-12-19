@@ -7,13 +7,3 @@ body{
     padding: 0;
     height: 100vh;
 }
-
-#gubben{
-    position: relative;
-
-    width: 10vw;
-    height: 10vh;
-    left: 0px;
-
-    background: black;
-}

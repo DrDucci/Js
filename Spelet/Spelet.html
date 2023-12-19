@@ -5,25 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="Spelet.css">
+<style>
+#gubben {
+width: 50px;
+height: 50px;
+background-color: blue;
+position: absolute;
+top: 50px;
+left: 50px;
+transition: transform 0.3s ease; /* Add a transition effect on transform */
+}
+</style>
+
 </head>
 <body>
-  <div id="gubben">
-    seoisiomvoim
-  </div>
-
-
+  <div id="gubben"></div>
 </body>
 </html>
 <script>
-    window.addEventListener("keydown", checkKeyPressed, false);
-    setInterval(checkKeyPressed, 300);
-
-    function checkKeyPressed(evt){
-      if (evt.keyCode == "87"){
-        document.getElementById("gubben").style.left = "100px";
+      // Funktion för knapp tryck
+  function checkKeyPressed(evt) {
+    if (evt.keyCode == 87) { // W
+      moveRight();
     }
-}
+  }
 
+  // Höger rörelse
+  function moveRight() {
+    var gubben = document.getElementById("movingObject");
+    gubben.style.transform = "translateX(50px)"; // 50px höger
+  }
 
-
+  // Lyssnar för knapptryck
+  document.addEventListener("keydown", checkKeyPressed);
 </script>
