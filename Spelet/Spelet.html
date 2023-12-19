@@ -16,17 +16,13 @@
 </html>
 <script>
     window.addEventListener("keydown", checkKeyPressed, false);
-    setInterval(checkKeyPressed, 100);
+    setTimeout(checkKeyPressed, 300);
 
     function checkKeyPressed(evt){
-      if (evt.keyCode == "13"){
-        document.getElementById("gubben").style.left = "100px";
-      }
-      if(evt.keyCode == "32"){
+      if (evt.keyCode == "87"){
         document.getElementById("gubben").style.left = "100px";
     }
-
-    }
+}
 
 
 
