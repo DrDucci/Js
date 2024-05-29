@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Mini.css">
+    <title>Miniräknare</title>
+</head>
+<body>
+    <div class="Miniräknaren">
+        <div class="Skärmen">
+            <div class="Skrivruta">
+                <h1 id="display">0</h1>
+            </div>
+        </div>
+        <div class="Knapparna">
+            <button onclick="pressButton('mode')"><h1 class="butt">MODE</h1></button>
+            <button onclick="pressButton('ce')"><h1 class="butt">CE</h1></button>
+            <button onclick="pressButton('c')"><h1 class="butt">C</h1></button>
+            <button onclick="pressButton('del')"><h1 class="butt">DEL</h1></button>
+            <button onclick="pressButton('reciprocal')"><h1 class="butt">x/1</h1></button>
+            <button onclick="pressButton('square')"><h1 class="butt">^2</h1></button>
+            <button onclick="pressButton('sqrt')"><h1 class="butt">sqrt</h1></button>
+            <button onclick="pressButton('/')"><h1 class="butt">/</h1></button>
+            <button onclick="pressButton('7')"><h1 class="butt">7</h1></button>
+            <button onclick="pressButton('8')"><h1 class="butt">8</h1></button>
+            <button onclick="pressButton('9')"><h1 class="butt">9</h1></button>
+            <button onclick="pressButton('*')"><h1 class="butt">x</h1></button>
+            <button onclick="pressButton('4')"><h1 class="butt">4</h1></button>
+            <button onclick="pressButton('5')"><h1 class="butt">5</h1></button>
+            <button onclick="pressButton('6')"><h1 class="butt">6</h1></button>
+            <button onclick="pressButton('-')"><h1 class="butt">-</h1></button>
+            <button onclick="pressButton('1')"><h1 class="butt">1</h1></button>
+            <button onclick="pressButton('2')"><h1 class="butt">2</h1></button>
+            <button onclick="pressButton('3')"><h1 class="butt">3</h1></button>
+            <button onclick="pressButton('+')"><h1 class="butt">+</h1></button>
+            <button onclick="pressButton('negate')"><h1 class="butt">+/-</h1></button>
+            <button onclick="pressButton('0')"><h1 class="butt">0</h1></button>
+            <button onclick="pressButton('.')"><h1 class="butt">.</h1></button>
+            <button onclick="pressButton('=')"><h1 class="butt">=</h1></button>
+        </div>
+    </div>
+
+    <script>
+        let currentExpression = "";
+        let currentInput = "0";
+
+        function pressButton(value) {
+            const display = document.getElementById('display');
+
+            if (!isNaN(value) || value === '.') {
+                if (currentInput === "0" && value !== ".") {
+                    currentInput = value;
+                } else {
+                    currentInput += value;
+                }
+                currentExpression += value;
+            } 
+            
+            else if (value === 'c') {
+                currentExpression = "";
+                currentInput = "0";
+            } 
+            
+            else if (value === 'ce') {
+                currentInput = "0";
+            } 
+            
+            else if (value === 'del') {
+                currentInput = currentInput.slice(0, -1) || "0";
+                currentExpression = currentExpression.slice(0, -1) || "0";
+            } 
+            
+            else if (value === 'negate') {
+                currentInput = String(-parseFloat(currentInput));
+                currentExpression = currentInput;
+            } 
+            
+            else if (value === 'reciprocal') {
+                currentInput = String(1 / parseFloat(currentInput));
+                currentExpression = currentInput;
+            } 
+            
+            else if (value === 'square') {
+                currentInput = String(Math.pow(parseFloat(currentInput), 2));
+                currentExpression = currentInput;
+            } 
+            
+            else if (value === 'sqrt') {
+                currentInput = String(Math.sqrt(parseFloat(currentInput)));
+                currentExpression = currentInput;
+            } 
+            
+            else if (value === '=') {
+                try {
+                    currentInput = String(eval(currentExpression));
+                    currentExpression = currentInput;
+                } 
+                
+                catch {
+                    currentInput = "Error";
+                    currentExpression = "";
+                }
+            } 
+            
+            else {
+                if (currentInput !== "0" || (currentInput === "0" && value === '-')) {
+                    currentExpression += value;
+                    currentInput = "0";
+                }
+            }
+
+            display.innerHTML = `<h2>${currentExpression}</h2>`;
+        }
+    </script>
+</body>
+</html>
